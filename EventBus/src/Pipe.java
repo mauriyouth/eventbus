@@ -11,10 +11,10 @@ public class Pipe {
 	}
 	
 	
-	
 	@Subscribe
 	void onPipeMsgEvent(PipeMsgEvent evt) {
-        //                                                                                                                                                                                                                                                                       
+		evt.pipeMsg.response.run();
+       	//evt.pipeMsg.body;      to be serialized in JSON                                                                                                                                                                                                                                                               
     }
 
 }
