@@ -1,12 +1,12 @@
 
 public class PipeMsg {
-	Runnable response;
-	Runnable error;
+	ResponseRunnable response;
+	ErrorRunnable error;
 	final String subject;
 	final String target;
 	final Object body; // to be serialized in JSON
 	
-	public PipeMsg(Runnable response, Runnable error, String subject,
+	public PipeMsg(ResponseRunnable response, ErrorRunnable error, String subject,
 			String target, Object body) {
 		super();
 		this.response = response;

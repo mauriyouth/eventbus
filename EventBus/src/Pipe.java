@@ -1,9 +1,11 @@
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
+import com.google.gson.Gson;
 
 
 public class Pipe {
 	EventBus eventbus;
+	private static Gson gson = new Gson();
 	
 	public Pipe(){
 		eventbus=EventBusManager.getEventBus();
@@ -14,7 +16,8 @@ public class Pipe {
 	@Subscribe
 	void onPipeMsgEvent(PipeMsgEvent evt) {
 		evt.pipeMsg.response.run();
-       	//evt.pipeMsg.body;      to be serialized in JSON                                                                                                                                                                                                                                                               
+		String json = gson.toJson(evt.pipeMsg.body);
+		System.out.println(json);
     }
 
 }
